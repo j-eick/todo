@@ -9,7 +9,7 @@ export default function Input_AddTask() {
     <div
       className="fixed flex flex-col items-center gap-y-5 w-full
     bottom-[6rem]
-    xs:bottom-[5rem]"
+    xs:bottom-[4rem]"
     >
       <input
         type="text"

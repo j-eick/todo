@@ -39,7 +39,7 @@ export default function RootLayout({
         ></div>
         {children}
         <footer className="w-full fixed bottom-0 flex justify-end bg-slate-400">
-          <div className="p-5">copyright</div>
+          <div className="p-5 xs:p-3 xs:text-xs_smaller">(c) 2023</div>
         </footer>
       </body>
     </html>
