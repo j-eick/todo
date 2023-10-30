@@ -1,20 +1,33 @@
 "use client";
 import ButtonAddTask from "@/components/button/button_addTask";
 import React, { useState } from "react";
+import useTodoStore from "@/lib/useTodoStore";
 
 console.clear();
 
 export default function Input_AddTask() {
   const [store, setStore] = useState([]);
   const [inputValue, setInputValue] = useState("");
+  const addTodo = useTodoStore((state) => state.addTodo);
+  const allTodos = useTodoStore((state) => state.allTodos);
 
-  console.log(inputValue);
+  console.log(allTodos);
 
   const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
-  const keyDownHandler = () => {
-    localStorage.setItem("to-do", JSON.stringify([...store, inputValue]));
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLElement>) => {
+    console.log(e);
+
+    if (e.key === "Enter") {
+      const date = new Date();
+      const task = {
+        todo: inputValue,
+        date: date,
+      };
+      addTodo(task);
+      setInputValue("");
+    }
   };
 
   /**
@@ -22,8 +35,13 @@ export default function Input_AddTask() {
    * @param e
    */
   const handleAddTaskButton = (e: React.MouseEvent<HTMLButtonElement>) => {
-    console.log(e);
-    localStorage.setItem("to-do", JSON.stringify([...store, inputValue]));
+    const date = new Date();
+    const task = {
+      todo: inputValue,
+      date: date,
+    };
+    addTodo(task);
+    setInputValue("");
   };
 
   return (
@@ -38,7 +56,7 @@ export default function Input_AddTask() {
         placeholder="add task"
         value={inputValue}
         onChange={handleOnChange}
-        onKeyDown={keyDownHandler}
+        onKeyDown={handleKeyDown}
         className="w-[70%] px-3 py-5 border-none rounded-md 
         xs:py-1 xs:text-xs
         "
