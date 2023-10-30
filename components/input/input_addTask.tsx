@@ -61,9 +61,11 @@ export default function Input_AddTask() {
         xs:py-1 xs:text-xs
         "
       />
-      <ButtonAddTask onClick={handleAddTaskButton} disabled={!inputValue}>
-        add task
-      </ButtonAddTask>
+      {inputValue.length !== 0 ? (
+        <ButtonAddTask onClick={handleAddTaskButton} disabled={!inputValue}>
+          add task
+        </ButtonAddTask>
+      ) : null}
     </div>
   );
 }

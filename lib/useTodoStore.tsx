@@ -32,7 +32,7 @@ const useTodoStore = create<todoProp>()((set) => ({
 
   addTodo: (params) =>
     set((state) => ({
-      allTodos: [...state.allTodos, params],
+      allTodos: [params, ...state.allTodos],
     })),
 
   clearTodos: () => ({
