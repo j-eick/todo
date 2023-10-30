@@ -17,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} relative w-full ;
+        className={`${inter.className} relative w-full h-[60dvh];
       `}
       >
         <div

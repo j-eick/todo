@@ -3,7 +3,7 @@ import TaskList from "@/components/list/taskList";
 
 export default function Home() {
   return (
-    <main className="items-center h-[100dvh] pb-[12rem]">
+    <main className="items-center">
       <TaskList />
       <Input_AddTask />
     </main>

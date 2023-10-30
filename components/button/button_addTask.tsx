@@ -12,6 +12,7 @@ export default function ButtonAddTask({
   return (
     <button
       onClick={onClick}
+      disabled={disabled}
       className="w-[30%] py-2 border rounded-md hover:bg-slate-100
       xs:text-xs xs:py-1
       "

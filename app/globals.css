@@ -7,3 +7,25 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.blur-top::before {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  pointer-events: none;
+}
+.blur-bottom::after {
+  content: "";
+  position: sticky;
+  bottom: 0px;
+  height: 20px;
+  width: 100%;
+  backdrop-filter: blur(10px);
+  pointer-events: none;
+}
+
+.blur-top::before {
+  top: 0px;
+}
