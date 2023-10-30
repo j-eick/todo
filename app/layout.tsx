@@ -24,16 +24,15 @@ export default function RootLayout({
           className="absolute -z-10 bg-cyan-400 
           w-[40rem] h-[40rem] rounded-full top-[-5rem] right-[0rem]
           blur-[22rem]
-          xs:w-[20rem] xs:h-[30rem] xs:blur-[10rem]
+          xs:w-[17rem] xs:h-[30rem] xs:blur-[7rem]
           xd:w-[30rem] xd:h-[35rem] xd:blur-[10rem]
           sm:w-[30rem] sm:h-[30rem]"
         ></div>
         <div
           className="absolute -z-15 bg-sky-900 
-          w-[40rem] h-[40rem] rounded-full bottom-[-55rem]
-          blur-[20rem]
-          xs:w-[20rem] xs:h-[30rem] xs:blur-[10rem]
-          xd:w-[30rem] xd:h-[40rem] xd:blur-[10rem] xd:left-[-5rem] 
+          w-[40rem] h-[40rem] rounded-full bottom-[-5rem] blur-[20rem]
+          xs:w-[20rem] xs:h-[20rem] xs:blur-[10rem]
+          xd:w-[30rem] xd:h-[25rem] xd:blur-[10rem] xd:left-[-5rem] 
           sm:w-[40rem] sm:h-[50rem] sm:blur-[15rem]
           "
         ></div>

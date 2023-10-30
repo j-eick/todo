@@ -3,7 +3,7 @@ import TaskList from "@/components/list/taskList";
 
 export default function Home() {
   return (
-    <main className="">
+    <main className="flex justify-center items-center h-[100dvh] pb-[12rem]">
       <TaskList />
       <Input_AddTask />
     </main>
