@@ -25,7 +25,7 @@ export default function Input_AddTask() {
         todo: inputValue,
         date: date,
       };
-      addTodo(task);
+      // addTodo(task);
       setInputValue("");
     }
   };
@@ -35,10 +35,12 @@ export default function Input_AddTask() {
    * @param e
    */
   const handleAddTaskButton = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const date = new Date();
     const task = {
+      id: "",
       todo: inputValue,
-      date: date,
+      tag: [""],
+      isComplete: false,
+      editing: Boolean,
     };
     addTodo(task);
     setInputValue("");
