@@ -40,7 +40,7 @@ export default function Input_AddTask() {
       todo: inputValue,
       tag: [""],
       isComplete: false,
-      editing: Boolean,
+      editing: false,
     };
     addTodo(task);
     setInputValue("");

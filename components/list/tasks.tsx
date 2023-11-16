@@ -76,11 +76,13 @@ export default function Tasks() {
     setTaskToEdit(e.target.value);
   };
 
+  // overflow-hidden
+
   return (
     <>
       <ul
-        className="sticky w-[80%] overflow-y-auto overflow-hidden max-h-[57dvh] mt-10 py-5 rounded-xl
-        flex items-center flex-col gap-3
+        className="sticky w-[80%] overflow-auto webkit-scrollbar max-h-[57dvh] mt-10 py-5 rounded-xl
+        flex items-center flex-col gap-3 
         bg-teal-50 bg-opacity-50
         sm:max-h-[70dvh] sm:mt-20
     "
