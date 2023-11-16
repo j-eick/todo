@@ -17,8 +17,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.className} relative w-full
-        xs:h-[533px]
+        className={`${inter.className} relative w-full 
+        xs:h-[80dvh]
       `}
       >
         <div
@@ -39,7 +39,12 @@ export default function RootLayout({
         ></div>
         {children}
         <footer className="w-full fixed bottom-0 flex justify-end bg-slate-400">
-          <div className="p-5 xs:p-3 xs:text-xs_smaller">(c) 2023</div>
+          <div
+            className="p-5 
+          xs:p-3 xs:text-xs_smaller"
+          >
+            (c) 2023
+          </div>
         </footer>
       </body>
     </html>

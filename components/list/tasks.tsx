@@ -81,10 +81,10 @@ export default function Tasks() {
   return (
     <>
       <ul
-        className="sticky w-[80%] overflow-y-scroll webkit-scrollbar max-h-[57dvh] mt-10 py-5 rounded-xl
+        className="sticky w-[80%] max-w-[480px] max-h-[57dvh] mt-20 py-5 rounded-xl overflow-y-scroll
         flex items-center flex-col gap-3 
         bg-teal-50 bg-opacity-50
-        sm:max-h-[70dvh] sm:mt-20
+        sm:max-h-[60dvh] sm:mt-20 sm:max-w-[480px]
     "
       >
         {allTodos.map((todo) => (
@@ -95,7 +95,7 @@ export default function Tasks() {
             onMouseUp={(e) => handleMouseUp(e, todo.id, todo.task)}
             className={`w-[90%] p-3 px-5 rounded-xl
           bg-opacity-100 backdrop-blur-[2rem] task-shadow bg-slate-100
-          sm:max-h-[70dvh] sm:mt-20`}
+          sm:max-h-[60dvh]`}
           >
             <div className="relative grid grid-cols-6 gap-0 w-[100%] ">
               {clickedTaskID === todo.id ? (

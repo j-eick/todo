@@ -61,7 +61,7 @@ export default function Input_AddTask() {
         value={inputValue}
         onChange={handleOnChange}
         onKeyDown={handleKeyDown}
-        className="w-[70%] px-3 py-5 border-none rounded-md focus:outline-none
+        className="w-[70%] max-w-[300px] px-3 py-5 border-none rounded-md focus:outline-none
         xs:py-1 xs:text-xs
         "
       />
