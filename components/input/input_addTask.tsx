@@ -20,12 +20,14 @@ export default function Input_AddTask() {
     console.log(e);
 
     if (e.key === "Enter") {
-      const date = new Date();
       const task = {
-        todo: inputValue,
-        date: date,
+        id: "",
+        task: inputValue,
+        tag: [""],
+        isComplete: false,
+        editing: false,
       };
-      // addTodo(task);
+      addTodo(task);
       setInputValue("");
     }
   };
@@ -37,7 +39,7 @@ export default function Input_AddTask() {
   const handleAddTaskButton = (e: React.MouseEvent<HTMLButtonElement>) => {
     const task = {
       id: "",
-      todo: inputValue,
+      task: inputValue,
       tag: [""],
       isComplete: false,
       editing: false,
