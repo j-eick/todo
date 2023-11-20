@@ -2,6 +2,7 @@
 import ButtonAddTask from "@/components/button/button_addTask";
 import React, { useState } from "react";
 import useTodoStore from "@/lib/useTodoStore";
+import DeleteButton from "@/components/button/Button";
 
 console.clear();
 
@@ -9,6 +10,7 @@ export default function Input_AddTask() {
   const [store, setStore] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const addTodo = useTodoStore((state) => state.addTodo);
+  const clearTodos = useTodoStore((state) => state.clearTodos);
   const allTodos = useTodoStore((state) => state.allTodos);
 
   console.log(allTodos);

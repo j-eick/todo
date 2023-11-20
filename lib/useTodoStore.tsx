@@ -9,6 +9,7 @@ type todoProp = {
     tag: string[];
     editing: boolean;
   }) => void;
+  clearTodos: () => void;
 };
 
 const useTodoStore = create<todoProp>()((set) => ({
@@ -173,9 +174,7 @@ const useTodoStore = create<todoProp>()((set) => ({
   //   tag,
   // }))
 
-  clearTodos: () => ({
-    allTodos: [],
-  }),
+  clearTodos: () => set({ allTodos: [] }),
 }));
 
 export default useTodoStore;
