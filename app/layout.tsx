@@ -27,14 +27,14 @@ export default function RootLayout({
           blur-[22rem]
           xs:w-[17rem] xs:h-[30rem] xs:blur-[7rem]
           xd:w-[30rem] xd:h-[35rem] xd:blur-[10rem]
-          sm:w-[30rem] sm:h-[30rem]"
+          sm:w-[30rem] sm:h-[35rem] sm:blur-[10rem]"
         ></div>
         <div
           className="absolute -z-15 bg-sky-900 
-          w-[40rem] h-[40rem] rounded-full bottom-[-5rem] blur-[20rem]
-          xs:w-[20rem] xs:h-[20rem] xs:blur-[10rem]
+          w-[40rem] h-[40rem] rounded-full bottom-[-7rem] blur-[20rem]
+          xs:w-[20rem] xs:h-[40rem] xs:blur-[10rem]
           xd:w-[30rem] xd:h-[25rem] xd:blur-[10rem] xd:left-[-5rem] 
-          sm:w-[40rem] sm:h-[50rem] sm:blur-[15rem]
+          sm:w-[40rem] sm:h-[30rem] sm:blur-[13rem]
           "
         ></div>
         {children}

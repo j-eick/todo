@@ -20,13 +20,16 @@ export default function Button({
   );
 }
 
-const buttonVariants = cva("border rounded-[7px]", {
+const buttonVariants = cva("border", {
   variants: {
     variant: {
-      primary:
-        "absolute place-items-center top-[5%] right-[5%] text-[#3b4749] hover:bg-neutral-200",
+      primary: "fixed place-items-center top-[3%] right-[3%] text-[#3b4749] ",
       secondary: "border-2 text-white border-grey",
       danger: "border-2 bg-red-500",
+      addTaskDisabled: `w-[20%] max-w-[120px] py-2 border border-slate-200 rounded-r-md text-slate-200
+        xs:text-xs xs:py-1`,
+      addTaskEnabled: `w-[20%] py-2 border border-white rounded-r-md text-white
+        xs:text-xs xs:py-1`,
     },
     size: {
       sm: "text-sm px-1 py-0",

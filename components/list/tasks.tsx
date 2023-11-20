@@ -81,10 +81,9 @@ export default function Tasks() {
   return (
     <>
       <ul
-        className="sticky w-[80%] max-w-[480px] max-h-[52dvh] mt-20 py-5 rounded-xl overflow-y-scroll
+        className="sticky w-[80%] max-w-sm max-h-[70dvh] mt-20 py-5 rounded-xl overflow-y-scroll
         flex items-center flex-col gap-3 
         bg-teal-50 bg-opacity-50
-        sm:max-h-[60dvh] sm:mt-20 sm:max-w-[480px]
     "
       >
         {allTodos.map((todo) => (

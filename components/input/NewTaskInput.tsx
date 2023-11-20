@@ -1,16 +1,14 @@
 "use client";
 import ButtonAddTask from "@/components/button/button_addTask";
+import NewTaskButton from "../button/Button";
 import React, { useState } from "react";
 import useTodoStore from "@/lib/useTodoStore";
-import DeleteButton from "@/components/button/Button";
 
 console.clear();
 
-export default function Input_AddTask() {
-  const [store, setStore] = useState([]);
+export default function NewTaskInput() {
   const [inputValue, setInputValue] = useState("");
   const addTodo = useTodoStore((state) => state.addTodo);
-  const clearTodos = useTodoStore((state) => state.clearTodos);
   const allTodos = useTodoStore((state) => state.allTodos);
 
   console.log(allTodos);
@@ -19,18 +17,20 @@ export default function Input_AddTask() {
     setInputValue(e.target.value);
   };
   const handleKeyDown = (e: React.KeyboardEvent<HTMLElement>) => {
-    console.log(e);
-
     if (e.key === "Enter") {
-      const task = {
-        id: "",
-        task: inputValue,
-        tag: [""],
-        isComplete: false,
-        editing: false,
-      };
-      addTodo(task);
-      setInputValue("");
+      if (inputValue.length !== 0) {
+        const task = {
+          id: "",
+          task: inputValue,
+          tag: [""],
+          isComplete: false,
+          editing: false,
+        };
+        addTodo(task);
+        setInputValue("");
+      } else {
+        alert("no input, no task");
+      }
     }
   };
 
@@ -52,7 +52,7 @@ export default function Input_AddTask() {
 
   return (
     <div
-      className="fixed flex flex-col items-center gap-y-5 w-full bottom-[6rem]
+      className="fixed flex justify-center w-[80%] max-w-sm bottom-[6rem]
     xs:bottom-[4rem]"
     >
       <input
@@ -63,15 +63,27 @@ export default function Input_AddTask() {
         value={inputValue}
         onChange={handleOnChange}
         onKeyDown={handleKeyDown}
-        className="w-[70%] max-w-[300px] px-3 py-5 border-none rounded-md focus:outline-none
+        className="w-[60%] max-w-[300px] px-3 py-5 border-none rounded-l-md focus:outline-none
         xs:py-1 xs:text-xs
         "
       />
-      {inputValue.length !== 0 ? (
-        <ButtonAddTask onClick={handleAddTaskButton} disabled={!inputValue}>
-          add task
-        </ButtonAddTask>
-      ) : null}
+      {inputValue ? (
+        <NewTaskButton
+          variant="addTaskEnabled"
+          onClick={handleAddTaskButton}
+          disabled={!inputValue}
+        >
+          add
+        </NewTaskButton>
+      ) : (
+        <NewTaskButton
+          variant="addTaskDisabled"
+          onClick={handleAddTaskButton}
+          disabled={!inputValue}
+        >
+          add
+        </NewTaskButton>
+      )}
     </div>
   );
 }
