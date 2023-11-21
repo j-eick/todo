@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${inter.className} relative w-full 
-        xs:h-[80dvh]
+        xs:h-[70dvh]
       `}
       >
         <div
@@ -37,7 +37,7 @@ export default function RootLayout({
         <div
           className="absolute -z-15 bg-sky-900 
           w-[40rem] h-[40rem] rounded-full bottom-[-7rem] blur-[20rem]
-          xs:w-[20rem] xs:h-[40rem] xs:blur-[10rem]
+          xs:w-[20rem] xs:h-[25rem] xs:blur-[10rem]
           xd:w-[30rem] xd:h-[25rem] xd:blur-[10rem] xd:left-[-5rem] 
           sm:w-[40rem] sm:h-[30rem] sm:blur-[12rem]
           md:w-[45rem] md:h-[30rem] md:blur-[13rem]

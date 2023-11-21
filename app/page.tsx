@@ -10,10 +10,9 @@ export default function Home() {
   const clearTodos = useTodoStore((state) => state.clearTodos);
 
   return (
-    <main className="relative flex justify-center ">
-      {/* <Warning variant="primary">Input missing</Warning> */}
-      <DeleteButton variant="primary" onClick={clearTodos}>
-        Clear <br /> List
+    <main className="relative flex justify-center">
+      <DeleteButton variant="clearTodos" size="sm" onClick={clearTodos}>
+        clear list
       </DeleteButton>
       <TaskList />
       <NewTaskInput />
