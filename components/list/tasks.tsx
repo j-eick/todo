@@ -1,5 +1,5 @@
 import useTodoStore from "@/lib/useTodoStore";
-import { useRef, useState } from "react";
+import { useState } from "react";
 
 console.clear();
 
@@ -81,7 +81,7 @@ export default function Tasks() {
   return (
     <>
       <ul
-        className="sticky w-[80%] max-w-sm max-h-[70dvh] mt-20 py-5 rounded-xl overflow-y-scroll
+        className="sticky w-[80%] max-w-sm max-h-[60dvh] mt-20 py-5 rounded-xl overflow-y-scroll
         flex items-center flex-col gap-3 
         bg-teal-50 bg-opacity-50
     "

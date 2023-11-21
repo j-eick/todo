@@ -27,14 +27,23 @@ export default function RootLayout({
           blur-[22rem]
           xs:w-[17rem] xs:h-[30rem] xs:blur-[7rem]
           xd:w-[30rem] xd:h-[35rem] xd:blur-[10rem]
-          sm:w-[30rem] sm:h-[35rem] sm:blur-[10rem]"
+          sm:w-[30rem] sm:h-[35rem] sm:blur-[10rem]
+          md:w-[40rem] md:h-[35rem] md:blur-[12rem]
+          lg:w-[50rem] lg:h-[40rem] lg:blur-[15rem]
+          xl:w-[55rem] xl:h-[45rem] xl:blur-[16rem]
+          xxl:w-[65rem] xxl:h-[50rem] xxl:blur-[18rem]
+          "
         ></div>
         <div
           className="absolute -z-15 bg-sky-900 
           w-[40rem] h-[40rem] rounded-full bottom-[-7rem] blur-[20rem]
           xs:w-[20rem] xs:h-[40rem] xs:blur-[10rem]
           xd:w-[30rem] xd:h-[25rem] xd:blur-[10rem] xd:left-[-5rem] 
-          sm:w-[40rem] sm:h-[30rem] sm:blur-[13rem]
+          sm:w-[40rem] sm:h-[30rem] sm:blur-[12rem]
+          md:w-[45rem] md:h-[30rem] md:blur-[13rem]
+          lg:w-[55rem] lg:h-[32rem] lg:blur-[15rem]
+          xl:w-[55rem] xl:h-[32rem] xl:blur-[15rem]
+          xxl:w-[55rem] xxl:h-[32rem] xxl:blur-[18rem]
           "
         ></div>
         {children}
