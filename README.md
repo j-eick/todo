@@ -2,7 +2,7 @@
 
 It does what its name says
 
-### TechStack
+## TechStack
 
 - TS, React, Next.js
 - twMerge, clsx, class-variance-authority
@@ -12,14 +12,14 @@ It does what its name says
 
 ![](./public//screen1.png)
 
-### Reusable Components in TailwindCSS with variants
+## Reusable Components in TailwindCSS with variants
 
 - I like how `styled-components` allows to create different variants of components and I was looking for away to do replicate this with tailwindCSS.
 - `twMerge`, `clsx` and `class-variance-authority` allow to do exactly that:
 
   - `variant: {}` stores any new variant of the button
   - `size: {}` allows for different sizes of one variant.
-  - `defaultVariant {}` applies a pre-determinded combination of variant and size in case they aren't explicitly given to the component.
+  - `defaultVariant {}` applies a pre-determinded combination of variant and size in case they aren't explicitly given to the component. <br/><br/>
 
   ```typescript
   type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
