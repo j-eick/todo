@@ -1,5 +1,9 @@
 import useTodoStore from "@/lib/useTodoStore";
 import { useState } from "react";
+import EditTaskButton from "@/components/button/Button";
+import DeleteTastIcon from "@/components/button/Button";
+import { RiDeleteBin6Line } from "react-icons/ri";
+import { FaCheck } from "react-icons/fa6";
 
 console.clear();
 
@@ -7,8 +11,10 @@ export default function Tasks() {
   const allTodos = useTodoStore((state) => state.allTodos);
   const [editing, setEditing] = useState(false);
   const [taskToEdit, setTaskToEdit] = useState("");
+  const [correctingTask, setCorrectingTask] = useState(taskToEdit);
   const [clickedTaskID, setClickedTaskID] = useState("");
   const [mouseDownStart, setMouseDownStart] = useState(Number);
+  const [isInputChanged, setIsInputChanged] = useState(false);
 
   /**
    * MOUSEDOWN
@@ -56,7 +62,6 @@ export default function Tasks() {
   };
 
   /**
-   *
    * @param e
    * @param clickedTask
    */
@@ -65,18 +70,24 @@ export default function Tasks() {
     clickedID: string,
     clickedTask: string
   ) => {
-    console.log(clickedTask);
-    setClickedTaskID(clickedTask);
-    const [todo] = allTodos.filter((todo) => todo.id === clickedTask);
-    console.log(todo.task);
-    setTaskToEdit(todo.task);
+    // setClickedTaskID(clickedTask);
+    // const [todo] = allTodos.filter((todo) => todo.id === clickedID);
+    // setTaskToEdit(todo.task);
   };
 
-  const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  /**
+   * Changes that made in editing-mode.
+   * @param e
+   */
+  const handleOnChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTaskToEdit(e.target.value);
-  };
 
-  // overflow-hidden
+    const newState = e.target.value;
+    if (taskToEdit !== newState) {
+      setIsInputChanged(true);
+    }
+    console.log(isInputChanged);
+  };
 
   return (
     <>
@@ -92,31 +103,29 @@ export default function Tasks() {
             key={todo.id}
             onMouseDown={(e) => handleMouseDown(e, todo.id, todo.task)}
             onMouseUp={(e) => handleMouseUp(e, todo.id, todo.task)}
-            className={`w-[90%] p-3 px-5 rounded-xl
-          bg-opacity-100 backdrop-blur-[2rem] task-shadow bg-slate-100
-          sm:max-h-[60dvh]`}
+            className={`w-[90%] py-3 pl-3 pr-2 rounded-xl
+          bg-opacity-100 backdrop-blur-[2rem] task-shadow bg-slate-100`}
           >
-            <div className="relative grid grid-cols-6 gap-0 w-[100%] ">
+            <div className="relative grid grid-cols-10 w-[100%] ">
               {clickedTaskID === todo.id ? (
                 editing ? (
                   <>
                     <input
                       type="text"
                       value={taskToEdit}
-                      onChange={handleOnChange}
-                      className={`col-span-5 h-[100%] py-[0.2rem] focus:outline-0 
+                      onChange={handleOnChangeInput}
+                      className={`col-span-7 h-[100%] py-[0.2rem] focus:outline-0 
                   border-b-slate-800 bg-slate-100 border-b-[0.1rem] `}
                     />
-
-                    <button
-                      type="button"
+                    <EditTaskButton
+                      variant="editTask"
                       onClick={(e) => handleEditButton(e, todo.id, todo.task)}
-                      className="bg-blue-200 absolute col-span-1 p-[0.65rem] rounded-[0.6rem]
-                  -top-[0.6rem] -right-[1.13rem]
-                  "
                     >
-                      edit
-                    </button>
+                      {isInputChanged ? <FaCheck /> : "Edit"}
+                    </EditTaskButton>
+                    <DeleteTastIcon variant="deleteTaskIcon" onClick={() => {}}>
+                      <RiDeleteBin6Line />
+                    </DeleteTastIcon>
                   </>
                 ) : (
                   <>
