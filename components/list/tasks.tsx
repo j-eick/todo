@@ -1,6 +1,7 @@
 import useTodoStore from "@/lib/useTodoStore";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import EditTaskButton from "@/components/button/Button";
+import ApplyTaskButton from "@/components/button/Button";
 import DeleteTastIcon from "@/components/button/Button";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { FaCheck } from "react-icons/fa6";
@@ -10,8 +11,9 @@ console.clear();
 export default function Tasks() {
   const allTodos = useTodoStore((state) => state.allTodos);
   const [editing, setEditing] = useState(false);
+  const [corrected, setCorrected] = useState(false);
   const [taskToEdit, setTaskToEdit] = useState("");
-  const [correctingTask, setCorrectingTask] = useState(taskToEdit);
+  const [originalTask, setOriginalTask] = useState("");
   const [clickedTaskID, setClickedTaskID] = useState("");
   const [mouseDownStart, setMouseDownStart] = useState(Number);
   const [isInputChanged, setIsInputChanged] = useState(false);
@@ -30,6 +32,7 @@ export default function Tasks() {
 
     const [targetTask] = allTodos.filter((todo) => todo.id === clickedID);
     setTaskToEdit(targetTask.task);
+    setOriginalTask(targetTask.task);
     setClickedTaskID(clickedID);
   };
 
@@ -81,13 +84,33 @@ export default function Tasks() {
    */
   const handleOnChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTaskToEdit(e.target.value);
+    console.log("taskToEdit: " + taskToEdit);
+    console.log("origialTask: " + originalTask);
 
-    const newState = e.target.value;
-    if (taskToEdit !== newState) {
-      setIsInputChanged(true);
-    }
-    console.log(isInputChanged);
+    // const newState = e.target.value;
+    // console.log("newstate: " + newState);
+    // if (originalTask.length !== newState.length) {
+    //   setIsInputChanged(true);
+    // }
+    // if (originalTask === taskToEdit) {
+    //   setIsInputChanged(false);
+    // }
+    // console.log(isInputChanged);
   };
+
+  const handleApplyButton = () => {
+    // code
+  };
+
+  useEffect(() => {
+    if (taskToEdit !== originalTask) {
+      setIsInputChanged(true);
+      console.log(isInputChanged);
+    } else {
+      setIsInputChanged(false);
+      console.log(isInputChanged);
+    }
+  }, [taskToEdit]);
 
   return (
     <>
@@ -117,12 +140,23 @@ export default function Tasks() {
                       className={`col-span-7 h-[100%] py-[0.2rem] focus:outline-0 
                   border-b-slate-800 bg-slate-100 border-b-[0.1rem] `}
                     />
-                    <EditTaskButton
-                      variant="editTask"
-                      onClick={(e) => handleEditButton(e, todo.id, todo.task)}
-                    >
-                      {isInputChanged ? <FaCheck /> : "Edit"}
-                    </EditTaskButton>
+                    {isInputChanged ? (
+                      <ApplyTaskButton
+                        type="button"
+                        variant="editTask"
+                        onClick={handleApplyButton}
+                      >
+                        <FaCheck />
+                      </ApplyTaskButton>
+                    ) : (
+                      <EditTaskButton
+                        type="button"
+                        variant="editTask"
+                        onClick={(e) => handleEditButton(e, todo.id, todo.task)}
+                      >
+                        Edit
+                      </EditTaskButton>
+                    )}
                     <DeleteTastIcon variant="deleteTaskIcon" onClick={() => {}}>
                       <RiDeleteBin6Line />
                     </DeleteTastIcon>
